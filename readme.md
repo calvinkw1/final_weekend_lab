@@ -1,6 +1,6 @@
 ### Final weekend lab
 
-For your last weekend lab, we'd like you to use your knowledge of Node.js, Socket.io and even Redis to build a multiplayer application or game. Some ideas include:
+For your last weekend lab, we'd like you to use your knowledge of Node.js, Socket.io andRedis to build a multiplayer application or game. Some ideas include:
 
 1. Build a multiplayer tic-tac-toe game using socket.io and redis for storing game information (leaderboard, winning streak, etc.)
 2. Build a chat application using socket.io and redis (to store recent messages and a list of people in the chat room)
