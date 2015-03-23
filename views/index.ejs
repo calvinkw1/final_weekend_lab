@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Weekend Lab - Chat</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+
+</head>
+<body>
+  
+  <div id="usernameWrap">
+    <form action="" id="user-name">
+      <input type="text" id="username" name="username" autofocus required>
+      <input type="submit" value="Create Username">
+    </form>
+  </div>
+
+  <div id="msg-box">
+    <ul id="messages"></ul>
+    <form id="chat-box" action="/create" method="POST">
+      <input id="m" name="message" autocomplete="off" autofocus required/><button id="send">Send</button>
+    </form>
+  </div>
+
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+
+  $("usernameWrap").submit(function(e) {
+    e.preventDefault();
+    console.log("username div submit hi");
+    $("#msg-box").show();
+  });
+
+  var socket = io();
+    $('#chat-box').submit(function(){
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+
+  socket.on('chat message', function(msg){
+    $('#messages').append($("<li class='msg'>").text(msg));
+  });
+
+
+
+</script>
+</body>
+</html>
